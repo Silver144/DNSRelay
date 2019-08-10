@@ -20,13 +20,13 @@ class DNSRelay : public QObject
 
 public:
 
-    explicit DNSRelay(int argc, char *argv[]);
+    explicit DNSRelay(std::int32_t argc, char *argv[]);
 
 private:
     QUdpSocket *cli_socket;
     QUdpSocket *sender;
 	
-    std::map<unsigned short, std::tuple<unsigned short, QHostAddress, quint16>> s_map;
+    std::map<std::uint16_t, std::tuple<std::uint16_t, QHostAddress, quint16>> s_map;
     quint16 n_count;
 	time_t time_init;
     QTimer *timer;
@@ -43,10 +43,10 @@ private:
     void build_blk_seg(const QByteArray &t_array, const QHostAddress& addr, const quint16 port);
     /* construct&send response segment */
     void build_res_seg(std::string,const QByteArray &t_array, const QHostAddress& addr, const quint16 port);
-	void handle_param(int argc, char *argv[]);
+	void handle_param(std::int32_t argc, char *argv[]);
     void handle_packet(const QByteArray &t_array, const QHostAddress &addr, const quint16 &port);
-	std::string get_cname(std::string resource, quint16 _size, unsigned char *data);
-	int debug_level = 0;
+	std::string get_cname(std::string resource, quint16 _size, std::uint8_t *data);
+	std::int32_t debug_level = 0;
 	std::string filename = "dnsrelay.txt";
 	QHostAddress DNS_server = QHostAddress("202.106.0.20");
 	clock_ctl *clock_c;

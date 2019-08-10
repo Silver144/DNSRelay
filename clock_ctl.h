@@ -3,9 +3,9 @@
 #include "timer.h"
 #include <map>
 
-#define MAXTIMER 1024
+constexpr quint32 MAXTIMER = 1024;
 
-#define COUNT_DOWN 1000
+constexpr quint32 COUNT_DOWN = 1000;
 
 #define inc(k) if(k < MAXTIMER) k = k + 1; else k = 0;
 
@@ -15,8 +15,8 @@ class clock_ctl : public QObject
 
 public:
 	clock_ctl();
-	/* ·µ»ØÏÂÒ»¸ö¿ÉÓÃµÄtimer±àºÅ£¬ÎÞ¿ÉÓÃ·µ»Ø-1 */
-	int search_for_next_valid();
+	/* è¿”å›žä¸‹ä¸€ä¸ªå¯ç”¨çš„timerç¼–å·ï¼Œæ— å¯ç”¨è¿”å›ž-1 */
+	std::int32_t search_for_next_valid();
 	bool alloc_timer(quint16 n_count);
 	bool delete_timer(quint16 n_count);
 	bool check_timer(quint16 n_count);
@@ -24,11 +24,11 @@ public:
 private:
 	Timer* timerList[MAXTIMER];
 	bool is_used[MAXTIMER];
-	/* Ö¸Ê¾µ±Ç°²éÕÒÎ´Ê¹ÓÃµÄtimerµÄÆðµã */
-	int cur_pointer;
+	/* æŒ‡ç¤ºå½“å‰æŸ¥æ‰¾æœªä½¿ç”¨çš„timerçš„èµ·ç‚¹ */
+	std::int32_t cur_pointer;
 	/* n_count <-> timer_seq */
-	std::map<quint16, int> n_count_timerseq_table;
-	const int TIMEOUT = 600;
+	std::map<quint16, std::int32_t> n_count_timerseq_table;
+	const std::int32_t TIMEOUT = 600;
 
 private slots:
 	void alert_clock(quint16 count);

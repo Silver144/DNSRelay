@@ -3,11 +3,11 @@
 #include <string>
 #include "dns_header.h"
 
-const unsigned char SAME_RNAME[2] = {0xc0, 0x0c};
-const unsigned char TYPE_HOST_ADDRESS[2] = {0x00, 0x01};
-const unsigned char CLASS_IN[2] = {0x00, 0x01};
-const unsigned char TTL[4] = {0x00, 0x00, 0x02, 0x58};
-const unsigned char DATA_LENGTH[2] = {0x00, 0x04};
+const std::uint8_t SAME_RNAME[2] = {0xc0, 0x0c};
+const std::uint8_t TYPE_HOST_ADDRESS[2] = {0x00, 0x01};
+const std::uint8_t CLASS_IN[2] = {0x00, 0x01};
+const std::uint8_t TTL[4] = {0x00, 0x00, 0x02, 0x58};
+const std::uint8_t DATA_LENGTH[2] = {0x00, 0x04};
 
 
 /*
@@ -41,19 +41,19 @@ const unsigned char DATA_LENGTH[2] = {0x00, 0x04};
 //class DNSHeader
 //{
 //public:
-//    unsigned short ID;        // Identification
-//    unsigned char QR;         // 1: Answer | 0: Query
-//    unsigned char opcode;     // Type
-//    unsigned char AA;         // Authoritative answer
-//    unsigned char TC;         // Truncated
-//    unsigned char RD;         // Recursion desired
-//    unsigned char RA;         // Recursion Available
-//    unsigned char zero;       // 0
-//    unsigned char rcode;      // Return error
-//    unsigned short QDCOUNT;    // Number of entries in the question section
-//    unsigned short ANCOUNT;    // Number of RRs in the answer section
-//    unsigned short NSCOUNT;    // Number of name server RRs in authority records section
-//    unsigned short ARCOUNT;    // Number of RRs in additional records section
+//    std::uint16_t ID;        // Identification
+//    std::uint8_t QR;         // 1: Answer | 0: Query
+//    std::uint8_t opcode;     // Type
+//    std::uint8_t AA;         // Authoritative answer
+//    std::uint8_t TC;         // Truncated
+//    std::uint8_t RD;         // Recursion desired
+//    std::uint8_t RA;         // Recursion Available
+//    std::uint8_t zero;       // 0
+//    std::uint8_t rcode;      // Return error
+//    std::uint16_t QDCOUNT;    // Number of entries in the question section
+//    std::uint16_t ANCOUNT;    // Number of RRs in the answer section
+//    std::uint16_t NSCOUNT;    // Number of name server RRs in authority records section
+//    std::uint16_t ARCOUNT;    // Number of RRs in additional records section
 //};
 
 
@@ -82,13 +82,13 @@ const unsigned char DATA_LENGTH[2] = {0x00, 0x04};
 //{
 //public:
 //    std::string QNAME;
-//    unsigned short QTYPE;
-//    unsigned short QCLASS;
+//    std::uint16_t QTYPE;
+//    std::uint16_t QCLASS;
 //    std::string RNAME;
-//    unsigned short RTYPE;
-//    unsigned short RCLASS;
-//    unsigned int TTL;
-//    unsigned short RSLENGTH;
+//    std::uint16_t RTYPE;
+//    std::uint16_t RCLASS;
+//    unsigned std::int32_t TTL;
+//    std::uint16_t RSLENGTH;
 //    std::string resource;
 //};
 

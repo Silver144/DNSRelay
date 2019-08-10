@@ -2,9 +2,15 @@
 #include "server.h"
 #include <QDebug>
 
-int main(int argc, char *argv[])
+std::int32_t main(std::int32_t argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    DNSRelay t(argc, argv);
+	try {
+		DNSRelay t(argc, argv);
+	}
+	catch (std::string msg) {
+		std::cout << msg;
+		exit(0);
+	}
     return a.exec();
 }
